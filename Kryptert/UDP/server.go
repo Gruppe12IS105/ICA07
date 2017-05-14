@@ -34,7 +34,7 @@ func listenAndReceive(){
 	}
 	for {
 		_, remoteaddr, err := ser.ReadFromUDP(p)
-		msg := Crypt.AesDecrypt([]byte(p), key)
+		var msg, _ = Crypt.AesDecrypt([]byte(p), []byte(key))
 		fmt.Printf("Read a message from %v %s \n", remoteaddr, string(msg))
 
 		if err !=  nil {
