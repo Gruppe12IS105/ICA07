@@ -1,12 +1,10 @@
-package main
+package client
+
 import (
 	"fmt"
 	"net"
 	"bufio"
-	"crypto/sha256"
 )
-
-const melding = "Møte fr 5.5 14:45 Flåklypa"
 
 func main() {
 	p :=  make([]byte, 2048)
@@ -15,11 +13,7 @@ func main() {
 		fmt.Printf("Some error %v", err)
 		return
 	}
-
-	cryptMelding := sha256.New()
-	cryptMelding.Write([]byte(melding))
-
-	fmt.Fprintf(conn, string(cryptMelding.Sum(nil)))
+	fmt.Fprintf(conn, "Møte Fr 5.5 14:45 Flåklypa")
 	_, err = bufio.NewReader(conn).Read(p)
 	if err == nil {
 		fmt.Printf("%s\n", p)
