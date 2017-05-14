@@ -1,26 +1,31 @@
+
 package main
 import (
 	"fmt"
 	"net"
+	"./Crypt"
 	"bufio"
-	"crypto/sha256"
 )
 
-const melding = "Møte fr 5.5 14:45 Flåklypa"
+const key = "HeiIS105"
 
 func main() {
+	var msg = Crypt.AesEncrypt([]byte("Møte fr 5.5 14:45 Flåklypa"), key)
+}
+
+func connectAndSend(key, message []byte){
+
 	p :=  make([]byte, 2048)
+
 	conn, err := net.Dial("udp", "158.37.63.180:8009")
 	if err != nil {
 		fmt.Printf("Some error %v", err)
 		return
 	}
 
-	cryptMelding := sha256.New()
-	cryptMelding.Write([]byte(melding))
-
-	fmt.Fprintf(conn, string(cryptMelding.Sum(nil)))
+	fmt.Fprintf(conn, string(message))
 	_, err = bufio.NewReader(conn).Read(p)
+
 	if err == nil {
 		fmt.Printf("%s\n", p)
 	} else {
