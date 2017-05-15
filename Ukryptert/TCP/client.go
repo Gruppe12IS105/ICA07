@@ -1,23 +1,41 @@
 package main
 import (
-	"fmt"
 	"net"
-	"bufio"
+	"os"
 )
 
 func main() {
-	p :=  make([]byte, 2048)
-	conn, err := net.Dial("tcp", "158.37.63.180:8009")
+	strEcho := "Halo"
+	servAddr := "158.37.63.180:8009"
+	tcpAddr, err := net.ResolveTCPAddr("tcp", servAddr)
 	if err != nil {
-		fmt.Printf("Some error %v", err)
-		return
+		println("ResolveTCPAddr failed:", err.Error())
+		os.Exit(1)
 	}
-	fmt.Fprintf(conn, "Møte Fr 5.5 14:45 Flåklypa")
-	_, err = bufio.NewReader(conn).Read(p)
-	if err == nil {
-		fmt.Printf("%s\n", p)
-	} else {
-		fmt.Printf("Some error %v\n", err)
+
+	conn, err := net.DialTCP("tcp", nil, tcpAddr)
+	if err != nil {
+		println("Dial failed:", err.Error())
+		os.Exit(1)
 	}
+
+	_, err = conn.Write([]byte(strEcho))
+	if err != nil {
+		println("Write to server failed:", err.Error())
+		os.Exit(1)
+	}
+
+	println("write to server = ", strEcho)
+
+	reply := make([]byte, 1024)
+
+	_, err = conn.Read(reply)
+	if err != nil {
+		println("Write to server failed:", err.Error())
+		os.Exit(1)
+	}
+
+	println("reply from server=", string(reply))
+
 	conn.Close()
 }
