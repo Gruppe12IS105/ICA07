@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0ac5e75-bcc8-4f70-8a62-7514d1f5fd83" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Ukryptert/UDP/client.go" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Ukryptert/UDP/server.go" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/UDP/client.go" afterPath="$PROJECT_DIR$/Ukryptert/TCP/client.go" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/UDP/server.go" afterPath="$PROJECT_DIR$/Ukryptert/TCP/server.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Kryptert/UDP/client.go" afterPath="$PROJECT_DIR$/Kryptert/UDP/client.go" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Ukryptert/TCP/server.go" afterPath="$PROJECT_DIR$/Ukryptert/TCP/server.go" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,8 +30,8 @@
       <file leaf-file-name="server.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Ukryptert/TCP/server.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="22" column="9" lean-forward="true" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+            <state relative-caret-position="903">
+              <caret line="36" column="1" lean-forward="true" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -415,8 +410,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Ukryptert/TCP/server.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="22" column="9" lean-forward="true" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+        <state relative-caret-position="903">
+          <caret line="36" column="1" lean-forward="true" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
           <folding />
         </state>
       </provider>

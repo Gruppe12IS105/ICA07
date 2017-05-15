@@ -16,7 +16,7 @@ func sendResponse(conn *net.UDPConn, addr *net.UDPAddr) {
 
 
 func main() {
-	p := make([]byte, 2048)
+	//p := make([]byte, 2048)
 	addr := net.TCPAddr{
 		Port: 8009,
 		IP:   net.ParseIP("0.0.0.0"),
@@ -32,19 +32,7 @@ func main() {
 			fmt.Println("Error accepting: ", err.Error())
 			os.Exit(1)
 		}
-
-		// Close the listener when the application closes.
-		defer ser.Close()
-		for {
-			// Listen for an incoming connection.
-			conn, err := ser.Accept()
-			if err != nil {
-				fmt.Println("Error accepting: ", err.Error())
-				os.Exit(1)
-			}
-			// Handle connections in a new goroutine.
-			go handleRequest(conn)
-		}
+		go handleRequest(conn)
 	}
 }
 
