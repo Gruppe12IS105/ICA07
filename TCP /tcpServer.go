@@ -7,7 +7,7 @@ import "strings" // only needed below for sample processing
 
 func main() {
 
-	fmt.Println("Launching server...")
+	fmt.Println("Launcher server...")
 
 	// listen on all interfaces
 	ln, _ := net.Listen("tcp", ":8011")
