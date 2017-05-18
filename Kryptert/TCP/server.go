@@ -36,8 +36,8 @@ func handleRequest (conn net.Conn) {
 	conn.Read(buf)
 	//msg, _ := Crypt.AesDecrypt(buf, key)
 	// Send a response back to person contacting us.
-	decryptmsg := Crypt.AesDecrypt(buf, key)
-	conn.Write([]byte(buf))
+	decryptmsg, _ := Crypt.AesDecrypt(buf, key)
+	conn.Write([]byte(decryptmsg))
 	// Close the connection when you're done with it.
 	conn.Close()
 }

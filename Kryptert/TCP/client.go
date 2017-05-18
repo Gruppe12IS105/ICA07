@@ -4,7 +4,7 @@ import (
 	"net"
 	"os"
 	"fmt"
-	//"./Crypt"
+	"./Crypt"
 )
 
 var key = []byte("TestkeyHei")
@@ -18,19 +18,20 @@ func main() {
 			os.Exit(1)
 		}
 
-conn, _ := net.DialTCP("tcp", nil, tcpAddr)
+	conn, _ := net.DialTCP("tcp", nil, tcpAddr)
 
-//strEcho, _ := Crypt.AesEncrypt([]byte(str), key)
-_, _ = conn.Write([]byte(str))
+	strEcho, _ := Crypt.AesEncrypt([]byte(str), key)
+	_, _ = conn.Write([]byte(strEcho))
 
-println("write to server = ", str)
+	println("write to server = ", str)
 
-//reply
-reply := make([]byte, 1024)
-conn.Read(reply)
-//msg, _ := Crypt.AesDecrypt([]byte(reply), key)
-//fmt.Println("reply from server=", (reply))
-//fmt.Printf("%s", msg)
-fmt.Printf("%s", reply)
-conn.Close()
+	//reply
+	reply := make([]byte, 1024)
+	conn.Read(reply)
+	msg, _ := Crypt.AesDecrypt([]byte(reply), key)
+	//fmt.Println("reply from server=", (reply))
+	//fmt.Printf("%s", msg)
+	fmt.Printf ("Your reply is")
+	fmt.Printf("%s", msg)
+	conn.Close()
 }
