@@ -16,7 +16,6 @@ func sendResponse(conn *net.UDPConn, addr *net.UDPAddr) {
 	}
 }
 
-
 func main() {
 	//p := make([]byte, 2048)
 	addr := net.TCPAddr{

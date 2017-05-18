@@ -22,22 +22,23 @@ func main() {
 			os.Exit(1)
 	}
 	strEcho, _ := Crypt.AesEncrypt([]byte(str), key)
+	//, _ := Crypt.AesEncrypt([]byte(str), key)
 	_, err = conn.Write([]byte(strEcho))
 	if err != nil {
 		println("Write to server failed:", err.Error())
 		os.Exit(1)
 	}
-	println("write to server = ", str)
+	println("write to server = ", strEcho)
+
 
 	reply := make([]byte, 1024)
 	conn.Read(reply)
-	msg, _ := Crypt.AesDecrypt([]byte(reply), key)
+	//msg, _ := Crypt.AesDecrypt([]byte(reply), key)
 	if err != nil {
 		println("Write to server failed:", err.Error())
 		os.Exit(1)
 	}
 
-	println("reply from server=", string(msg))
-
+	println("reply from server=")
 	conn.Close()
 }
