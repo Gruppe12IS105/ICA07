@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net"
 	"os"
-	//"./Crypt"
+	"./Crypt"
 )
 
 var key = []byte("TestkeyHei")
@@ -36,6 +36,7 @@ func handleRequest (conn net.Conn) {
 	conn.Read(buf)
 	//msg, _ := Crypt.AesDecrypt(buf, key)
 	// Send a response back to person contacting us.
+	decryptmsg := Crypt.AesDecrypt(buf, key)
 	conn.Write([]byte(buf))
 	// Close the connection when you're done with it.
 	conn.Close()
