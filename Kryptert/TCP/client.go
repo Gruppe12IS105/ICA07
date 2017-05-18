@@ -17,7 +17,7 @@ func main() {
 			os.Exit(1)
 		}
 
-		conn, _ := net.DialTCP("tcp", nil, tcpAddr)
+	conn, _ := net.DialTCP("tcp", nil, tcpAddr)
 
 	strEcho, _ := Crypt.AesEncrypt([]byte(str), key)
 
