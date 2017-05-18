@@ -6,17 +6,7 @@ import (
 	"os"
 )
 
-
-func sendResponse(conn *net.UDPConn, addr *net.UDPAddr) {
-	_,err := conn.WriteToUDP([]byte("From server: Hello I got your mesage "), addr)
-	if err != nil {
-		fmt.Printf("Couldn't send response %v", err)
-	}
-}
-
-
 func main() {
-	//p := make([]byte, 2048)
 	addr := net.TCPAddr{
 		Port: 8009,
 		IP:   net.ParseIP("0.0.0.0"),
@@ -39,11 +29,10 @@ func main() {
 	// Handles incoming requests.
 func handleRequest (conn net.Conn) {
 	// Make a buffer to hold incoming data.
-	//buf := make([]byte, 1024)
-	// Read the incoming connection into the buffer.
-	//reqLen, _ := conn.Read(buf)
+	buf := make([]byte, 1024)
+	conn.Read(buf)
 	// Send a response back to person contacting us.
-	conn.Write([]byte("Message received."))
+	conn.Write([]byte("Message received.", buf))
 	// Close the connection when you're done with it.
 	conn.Close()
 	}
