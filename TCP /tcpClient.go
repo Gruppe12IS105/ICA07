@@ -23,3 +23,6 @@ func main() {
 		fmt.Print("Server: " + message)
 	}
 }
+
+// Kode fra https://gist.github.com/iwanbk/2295233, https://coderwall.com/p/wohavg/creating-a-simple-tcp-server-in-go -
+// - https://systembash.com/a-simple-go-tcp-server-and-tcp-client/ og http://stackoverflow.com/questions/27176523/udp-in-golang-listen-not-a-blocking-call delvis gjennbrukt her.
