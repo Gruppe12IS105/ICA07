@@ -1,4 +1,3 @@
-// Copyright 2017 Gruppe 12 IS-105. All rights reserved.
 // diffie hellman key exchange implementation in golang
 package Crypt
 
