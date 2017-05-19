@@ -10,13 +10,10 @@ func main() {
 
 	fmt.Println("Launcher server...")
 
-	// listen on all interfaces
 	ln, _ := net.Listen("tcp", ":8011")
 
-	// accept connection on port
 	conn, _ := ln.Accept()
 
-	// run loop forever (or until ctrl-c)
 	for {
 		// will listen for message to process ending in newline (\n)
 		message, _ := bufio.NewReader(conn).ReadString('\n')
